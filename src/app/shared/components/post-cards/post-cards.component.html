@@ -1,0 +1,17 @@
+<div class="card h-100">
+    <div class="card-header">
+        <h2>
+            {{postObj.title}}
+        </h2>
+    </div>
+    <div class="card-body">
+        <p>
+            {{postObj.content}}
+        </p>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-block btn-primary"
+        [routerLink]="['/posts', postObj.id]">Read more</button>
+    </div>
+</div>
+

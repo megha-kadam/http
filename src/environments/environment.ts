@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+   postURL : 'https://fir-api-call-9c6a1-default-rtdb.firebaseio.com'
+   //https://angularposts-1071c-default-rtdb.firebaseio.com
 };
 
 /*
