@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -16,6 +16,9 @@ export class PostService{
     constructor(private http : HttpClient){}
 
     fetchAllPost() : Observable<any>{
+        let headers : HttpHeaders = new HttpHeaders()
+                .set('Auth', 'application/jsonposts')
+                .set('Content-Type', 'application/jsonposts')
         return this.http.get<any>(this.postURL)
     }
 

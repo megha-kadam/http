@@ -4,10 +4,12 @@ import { PostsComponent } from "./components/posts/posts.component";
 import { PostFormComponent } from "./components/post-form/post-form.component";
 import { PostDetailsComponent } from "./components/post-details/post-details.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { GetconfirmComponent } from './components/getconfirm/getconfirm.component';
-
 
 const route : Routes = [
+    {
+        path : '',
+        component : PostsComponent,
+    },
     {
         path : 'posts',
         component : PostsComponent,
@@ -44,8 +46,7 @@ const route : Routes = [
     ],
     exports : [RouterModule],
     declarations: [
-    
-    GetconfirmComponent
+
   ]
 })
 export class AppRoutingModule{

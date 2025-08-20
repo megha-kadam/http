@@ -12,10 +12,13 @@ import { PostFormComponent } from './shared/components/post-form/post-form.compo
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './shared/approuting.module';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
+import { BackBtnComponent } from './shared/components/back-btn/back-btn.component';
+import { GetconfirmComponent } from './shared/components/getconfirm/getconfirm.component';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { RouterModule } from '@angular/router';
     PostCardsComponent,
     PostDetailsComponent,
     PostFormComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BackBtnComponent,
+    GetconfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,13 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
